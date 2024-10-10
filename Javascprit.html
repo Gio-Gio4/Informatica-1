@@ -1,0 +1,92 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        #out1{
+            height: 200px;
+            width: 200px;
+            border: 1px solid black;
+            background-color:rgb(237, 237, 237);
+        }
+        #out2{
+            height: 200px;
+            width: 200px;
+            border: 1px solid gray;
+            background-color:rgb(237, 237, 237);
+        }
+
+        #out3{
+            height: 200px;
+            width: 200px;
+            border: 1px solid yellow;
+            background-color:rgb(237, 237, 237);
+        }
+        #out4{
+            height: 200px;
+            width: 200px;
+            border: 1px solid blue;
+            background-color:rgb(237, 237, 237);
+        }
+        #out5{
+            height: 200px;
+            width: 200px;
+            border: 1px solid orange;
+            background-color:rgb(237, 237, 237);
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        La mia prima pagina javascript
+    </h1>
+
+
+    <div id="out1"></div>
+    <div id="out2"></div>
+    <div id="out3"></div>
+    <div id="out4"></div>
+ <button onclick="stampa()" > Avvia funziona </button>
+
+
+
+   <script>
+        function stampa()
+        {
+           
+            alert("test bottone + funzione");
+            document.getElementById("out1").innerHTML = " Questo è il mio primo bottone";
+        }
+
+        {
+           
+           alert("test bottone + funzione");
+           document.getElementById("out2").innerHTML = " Spero che funziona";
+       }
+
+       {
+           
+           alert("test bottone + funzione");
+           document.getElementById("out3").innerHTML = " Con questo sia 3 su 5";
+       }
+       {
+           
+           alert("test bottone + funzione");
+           document.getElementById("out4").innerHTML = " Il mio penultimo bottone ";
+       }
+
+
+       {
+           
+           alert("test bottone + funzione");
+           document.getElementById("out5").innerHTML = " Con questo ho finito";
+       }
+
+    </script>
+
+</body>
+</html>
