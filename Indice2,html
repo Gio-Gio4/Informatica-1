@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indice della Pagina</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            margin-top: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        a {
+            text-decoration: none;
+            color: blue;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Indice della Pagina</h1>
+<ul>
+    <li><a href="#primapagina">1. primapagina</a></li>
+    <li><a href="#secondapagina">2. secondapagina</a></li>
+    <li><a href="#Lamiaschedapersonale">3. Lamiaschedapersonale</a></li>
+    <li><a href="#EsercizioCss">4. EsercizioCss</a></li>
+    <li><a href="#Javascript">5.Javascript"</a></li>
+</ul>
+
+<h2 id="primapagina">1. primapagina</h2>
+<p>Testo primapagina...</p>
+
+<h2 id="secondapagina">2. secondapagina</h2>
+<p>Contenuto del secondapagina...</p>
+
+<h2 id="Lamiaschedapersonale">3.Lamiaschedapersonale</h2>
+<p>Contenuto delLamiaschedapersonale...</p>
+
+<h2 id="EsercizioCss">4. EsercizioCss</h2>
+<p>Contenuto del EsercizioCss...</p>
+
+<h2 id="Javascript">5. Javascript"</h2>
+<p>Javascript"...</p>
+
+</body>
+</html>
