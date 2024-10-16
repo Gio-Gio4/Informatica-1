@@ -197,5 +197,71 @@ body {
           </div>
         </div>
         </body>
+    <style>
+            body {
+              font-family: Arial, Helvetica, sans-serif;
+            }
+            
+            .flip-card {
+              background-color: transparent;
+              width: 300px;
+              height: 300px;
+              perspective: 1000px;
+            }
+            
+            .flip-card-inner {
+              position: relative;
+              width: 100%;
+              height: 100%;
+              text-align: center;
+              transition: transform 0.6s;
+              transform-style: preserve-3d;
+              box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            }
+            
+            .flip-card:hover .flip-card-inner {
+              transform: rotateY(180deg);
+            }
+            
+            .flip-card-front, .flip-card-back {
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              -webkit-backface-visibility: hidden;
+              backface-visibility: hidden;
+            }
+            
+            .flip-card-front {
+              background-color: #bbb;
+              color: black;
+            }
+            
+            .flip-card-back {
+              background-color: #2980b9;
+              color: white;
+              transform: rotateY(180deg);
+            }
+            </style>
+            </head>
+            <body>
+            
+            <h1>Card Flip with Text</h1>
+            <h3>Hover over the image below:</h3>
+            
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <img src="Therac-25jpg" style="width:300px;height:300px;">
+                </div>
+                <div class="flip-card-back">
+                  <h1>Therac-25</h1>
+                  <p>Diverse vite umane</p>
+                  <p>Therac-25 era una macchina per la radioterapia utilizzata negli ospedali. A causa di bug nel software, in alcune circostanze la macchina somministrava dosi di radiazioni letali ai pazienti. Il bug si manifestava solo in determinate sequenze operative, quindi non fu scoperto subito.
+                    Almeno 5 persone morirono e molte altre subirono gravi lesioni a causa di sovraesposizione alle radiazioni.</p>
+                </div>
+              </div>
+            </div>
+            </body>
+      
     
   
