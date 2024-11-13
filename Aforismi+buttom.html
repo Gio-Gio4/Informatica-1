@@ -59,64 +59,54 @@
 
 </head>
 <body>
-    <div id="GiovanniBoretto">
-        <button onclick="stampa()" class="button" > Button </button>
-    </div>
-    <script>
-        function stampa(){
-        alert(<p>Albert Einstein:
-            "Solo due cose sono infinite: l'universo e la stupidità umana, riguardo l'universo ho ancora dei dubbi.""</p>)
-    document.getelementbyid("GiovanniBoretto") }
-
-    </script>
-       <p id="GioovanniBoretto">lbert Einstein:
+    <<p id="GioovanniBoretto">lbert Einstein:
             "Solo due cose sono infinite: l'universo e la stupidità umana, riguardo l'universo ho ancora dei dubbi."".</p> 
-       <button onclick="nascondiStampa()">Nascondi Testo</button> 
-     
-      
-     <script>
-     function nascondiStampa() 
+       <button onclick="nascondiTesto()">Nascondi Testo</button> 
+      <script>
+     function nascondiTesto() 
      {
      const testo = document.getElementById("GiovanniBoretto");
      testo.style.display = "none"; 
    
      } 
        </script>
-    <div id="GioGio">
-        <button onclick="stampa2()" class="button" > Button </button>
-       
+
+    
+    </div>
     <script>
-        function stampa2(){
-        alert(<p>Charles Darwin:
-            “Dio non si immischia nelle vicende di dettaglio della storia naturale, cioè nelle cause secondarie che studiano gli scienziati.”</p>)
-    document.getelementbyid("GioGio") }
 
-    </script>
-   <p id="GioGio">Charles Darwin:
+   
+     
+       </script>
+       <p id="GioGio">Charles Darwin:
             “Dio non si immischia nelle vicende di dettaglio della storia naturale, cioè nelle cause secondarie che studiano gli scienziati.”</p> 
-   <button onclick="nascondiStampa2()">Nascondi Testo</button> 
- 
-  
- <script>
- function nascondiStampa2() 
- {
- const testo = document.getElementById("GioGio");
- testo.style.display = "none"; 
-
- } 
-   </script>
-
-    <div id="GiovanniMaggio">
-        <button onclick="stampa3()" class="button" > Button </button>
+   <button onclick="nascondiTesto2()">Nascondi Testo</button> 
+      <script>   
+        function nascondiTesto2() 
+    
+     {
+     const testo = document.getElementById("GioGio");
+     testo.style.display = "none"; 
+   
+     } 
+       </script> 
        
 </div>
-<script>
-    function stampa3(){
-    alert(<p>Marie Curie:
-        “Lo scienziato nel suo laboratorio non è solo un tecnico, è anche un bambino davanti a fenomeni della Natura che lo affascinano come un racconto di fate.”</p>)
-document.getelementbyid("GiovanniMaggio") }
 
+    
+    <p id="GioovanniMaggio">Marie Curie:
+        “Lo scienziato nel suo laboratorio non è solo un tecnico, è anche un bambino davanti a fenomeni della Natura che lo affascinano come un racconto di fate.”</p> 
+<button onclick="nascondiTesto3()">Nascondi Testo</button> 
+
+<script>
+function nascondiStampa3() 
+{
+const testo = document.getElementById("GiovanniMaggio");
+testo.style.display = "none"; 
+
+} 
 </script>
+
 <p id="GioovanniMaggio">>Marie Curie:
         “Lo scienziato nel suo laboratorio non è solo un tecnico, è anche un bambino davanti a fenomeni della Natura che lo affascinano come un racconto di fate.”</p> 
 <button onclick="nascondiStampa3()">Nascondi Testo</button> 
