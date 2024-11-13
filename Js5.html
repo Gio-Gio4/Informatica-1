@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatore Decrementale</title>
+    <style>
+        #contatore-finale {
+            display: none;
+            font-size: 2em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Contatore Decrementale</h1>
+    
+    <p id="contatore-decrementale">Contatore: <span id="counter">10</span></p>
+
+    <div id="contatore-finale">
+        <p>Contatore finale:</p>
+        <p id="counter-finale">0</p>
+    </div>
+
+    <script>
+     
+        let c = 10;
+        const counterElement = document.getElementById("counter");
+
+        
+        function decrementCounter() {
+            if (c > 0) {
+                c--;
+                counterElement.textContent = c;
+            } else {
+                clearInterval(decrementInterval); 
+                showFinalCounter(); 
+            
+        }
+
+        function showFinalCounter() {
+            const finalCounterElement = document.getElementById("counter-finale");
+            const finalDiv = document.getElementById("contatore-finale");
+            finalDiv.style.display = 'block'; // Mostra il div
+
+            let finalCount = 0;
+
+           
+            const finalInterval = setInterval(function() {
+                if (finalCount < 10) {
+                    finalCount++;
+                    finalCounterElement.textContent = finalCount;
+                } else {
+                    clearInterval(finalInterval); // Ferma l'incremento
+                }
+            }, 1000); // Ogni 1 secondo
+        }
+
+        const decrementInterval = setInterval(decrementCounter, 1000); 
+    </script>
+
+</body>
+</html>
