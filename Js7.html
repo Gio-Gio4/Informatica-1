@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function myFunction() {
+          alert("Page is loaded");
+        }
+        </script>
+
+</head>
+<body>
+    <body onload="myFunction()">
+        <h1>Io!</h1>   
+        <p>Come ti chiami.</p>
+
+        <button onclick="myFunction()">Try it</button>
+        
+        <p id="demo"></p>
+        
+        <script>
+        function myFunction() {
+          let person = prompt("Please enter your name", "Giovanni Boretto");
+          if (person != null) {
+            document.getElementById("demo").innerHTML =
+            "Hello " + person + "! Quanti anni hai?";
+          }
+        } 
+       
+
+        let person = prompt("Quanti anni hai", "16 anni ");
+          if (person != null) {
+            document.getElementById("demo").innerHTML =
+            "Bello " + person + "! Quanto sei grande!";
+          }
+
+
+        </script>
+<p>La mia data di nascita</p>
+
+<p id="demo"></p>
+
+<script>
+const d = new Date("2008-02-27");
+document.getElementById("demo").innerHTML = d;
+const dateDifferenceInDays = (dateInitial, dateFinal) =>
+  (dateFinal - dateInitial) / 86_400_000;
+
+dateDifferenceInDays(
+  new Date('2008-02-27'),
+  new Date('2024-11-19')
+); </script>
+
+    </body>
+</html>
