@@ -1,57 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script>
-        function myFunction() {
-          alert("Page is loaded");
-        }
-        </script>
-
+    <title>Calcolo Età</title>
 </head>
 <body>
-    <body onload="myFunction()">
-        <h1>Io!</h1>   
-        <p>Come ti chiami.</p>
+    <h1>Benvenuto!</h1>
+    <p>Inserisci il tuo nome e la tua data di nascita:</p>
 
-        <button onclick="myFunction()">Try it</button>
-        
-        <p id="demo"></p>
-        
-        <script>
-        function myFunction() {
-          let person = prompt("Please enter your name", "Giovanni Boretto");
-          if (person != null) {
-            document.getElementById("demo").innerHTML =
-            "Hello " + person + "! Quanti anni hai?";
-          }
-        } 
-       
+    <form id="userForm">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" required>
+        <br><br>
 
-        let person = prompt("Quanti anni hai", "16 anni ");
-          if (person != null) {
-            document.getElementById("demo").innerHTML =
-            "Bello " + person + "! Quanto sei grande!";
-          }
+        <label for="birthdate">Data:</label>
+        <input type="date" id="birthdate" required>
+        <br><br>
 
+        <button type="submit">Calcola</button>
+    </form>
 
-        </script>
-<p>La mia data di nascita</p>
+    <h2 id="result"></h2>
 
-<p id="demo"></p>
+    <script>
+        document.getElementById("userForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Previene il ricaricamento della pagina
 
-<script>
-const d = new Date("2008-02-27");
-document.getElementById("demo").innerHTML = d;
-const dateDifferenceInDays = (dateInitial, dateFinal) =>
-  (dateFinal - dateInitial) / 86_400_000;
+            const name = document.getElementById("name").value;
+            const birthdate = new Date(document.getElementById("birthdate").value);
 
-dateDifferenceInDays(
-  new Date('2008-02-27'),
-  new Date('2024-11-19')
-); </script>
+            // Controllo se la data di nascita è valida
+            if (isNaN(birthdate.getTime())) {
+                alert("Per favore, inserisci una data valida!");
+                return;
+            }
 
-    </body>
+            const today = new Date();
+            const diffTime = today - birthdate; // Differenza in millisecondi
+
+            const daysAlive = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+            const hoursAlive = Math.floor(diffTime / (1000 * 60 * 60));
+
+            const result = `Ciao ${name}, sei in vita da ${daysAlive} giorni e ${hoursAlive} ore.`;
+            document.getElementById("result").textContent = result;
+        });
+    </script>
+</body>
 </html>
