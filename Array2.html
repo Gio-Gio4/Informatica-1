@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funzione getElement con Array</title>
+  <script>
+   
+    function getElement(arr, index) {
+
+      if (index < 0 || index >= arr.length) {
+        return "Indice non valido"; 
+      }
+      
+      return arr[index];
+    }
+
+    function displayElements() {
+    
+      let morra = [10, 20, 30, 40, 50];
+      
+      
+      let firstElement = getElement(morra, 0); 
+      let lastElement = getElement(morra, morra.length - 1); 
+      let outOfBoundsElement1 = getElement(morra, 10); 
+      let outOfBoundsElement2 = getElement(morra, -1); 
+
+      document.getElementById('first').textContent = "Primo elemento: " + firstElement;
+      document.getElementById('last').textContent = "Ultimo elemento: " + lastElement;
+      document.getElementById('outOfBounds1').textContent = "Elemento fuori limite (indice 10): " + outOfBoundsElement1;
+      document.getElementById('outOfBounds2').textContent = "Elemento fuori limite (indice -1): " + outOfBoundsElement2;
+    }
+  </script>
+</head>
+<body onload="displayElements()">
+  <h1>Esempio di Funzione `getElement` con Array</h1>
+
+  <p id="first"></p> 
+  <p id="last"></p> 
+  <p id="outOfBounds1"></p> 
+  <p id="outOfBounds2"></p>
+
+</body>
+</html>
