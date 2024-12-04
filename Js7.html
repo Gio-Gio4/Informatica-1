@@ -25,19 +25,19 @@
 
     <script>
         document.getElementById("userForm").addEventListener("submit", function(event) {
-            event.preventDefault(); // Previene il ricaricamento della pagina
+            event.preventDefault(); 
 
             const name = document.getElementById("name").value;
             const birthdate = new Date(document.getElementById("birthdate").value);
 
-            // Controllo se la data di nascita è valida
+           
             if (isNaN(birthdate.getTime())) {
                 alert("Per favore, inserisci una data valida!");
                 return;
             }
 
             const today = new Date();
-            const diffTime = today - birthdate; // Differenza in millisecondi
+            const diffTime = today - birthdate;
 
             const daysAlive = Math.floor(diffTime / (1000 * 60 * 60 * 24));
             const hoursAlive = Math.floor(diffTime / (1000 * 60 * 60));
