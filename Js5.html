@@ -42,7 +42,7 @@
         function showFinalCounter() {
             const finalCounterElement = document.getElementById("counter-finale");
             const finalDiv = document.getElementById("contatore-finale");
-            finalDiv.style.display = 'block'; // Mostra il div
+            finalDiv.style.display = 'block'; 
 
             let finalCount = 0;
 
@@ -52,9 +52,9 @@
                     finalCount++;
                     finalCounterElement.textContent = finalCount;
                 } else {
-                    clearInterval(finalInterval); // Ferma l'incremento
+                    clearInterval(finalInterval); 
                 }
-            }, 1000); // Ogni 1 secondo
+            }, 1000); 
         }
 
         const decrementInterval = setInterval(decrementCounter, 1000); 
