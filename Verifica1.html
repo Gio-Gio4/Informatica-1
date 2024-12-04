@@ -1,0 +1,72 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array1</title>
+</head>
+<body>
+   
+<p>  Definizione di array
+   Una struttura dati composta da elementi omogenei tra loro
+   (numerici, oggetti o altre strutture dati)
+
+   </p>
+   <p>
+    Esempio stampa di array
+   </p>
+   <style>
+    #out1{
+    color: rgb(0, 0, 0);
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+}
+   </style>
+   <p id="out1"></p>
+   <p id="demo"></p>
+
+
+
+<script>
+
+        const arrymorra=["sasso","mano", "forbice","carta","candela","spok","lucertola"]
+
+
+
+        let tiro=-1;
+
+        for(let i=0;i<100;i++)
+        {
+        tiro=numeroCasuale()
+
+        document.getElementById("out1").innerHTML+=arrymorra[tiro] +" "
+if (tiro==50)
+{
+
+    document.getElementById("out1").innerHTML += '<span style="color:red;">' + arrymorra[tiro
+
+}
+
+        }
+        console.log(arrymorra)
+
+
+
+
+function numeroCasuale() {
+  return Math.floor(Math.random() * 7); 
+ 
+
+
+}
+
+
+
+</script>
+
+
+</body>
+</html>
