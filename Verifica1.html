@@ -37,20 +37,21 @@
 
 
         let tiro=-1;
-
+        let counter = 0; 
         for(let i=0;i<100;i++)
         {
         tiro=numeroCasuale()
 
-        document.getElementById("out1").innerHTML+=arrymorra[tiro] +" "
-if (tiro==50)
-{
-
-    document.getElementById("out1").innerHTML += '<span style="color:red;">' + arrymorra[tiro
-
-}
-
+       
+        if (counter === 50) {  
+            document.getElementById("out1").innerHTML += '<span style="color:red;">' + arrymorra[tiro] + '</span> ';
+        } else {
+            document.getElementById("out1").innerHTML += arrymorra[tiro] + " ";
         }
+
+        counter++; 
+    }
+        
         console.log(arrymorra)
 
 
