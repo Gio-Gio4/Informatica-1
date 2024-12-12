@@ -1,0 +1,64 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisi Numerica con Array</title>
+</head>
+<body>
+
+    <h1>Analisi Numerica con Array</h1>
+    <p>Numeri perfetti da 0 a 10000:</p> 
+    <ul id="out1"></ul>
+    <p>Numeri non perfetti con fattori:</p>
+    <ul id="out2"></ul>
+
+    <script>
+        function isPrime(n) {
+            if (n <= 1) return false;  
+            for (let i = 2; i <= Math.sqrt(n); i++) { 
+                if (n % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function findFactors(n) {
+            let factors = [];
+            for (let i = 1; i <= n; i++) {
+                if (n % i === 0) {
+                    factors.push(i);
+                }
+            }
+            return factors;
+        }
+
+        function isPerfectNumber(n) {
+            let sum = 0;
+            for (let i = 1; i < n; i++) {
+                if (n % i === 0) {
+                    sum += i;
+                }
+            }
+            return sum === n;
+        }
+
+        let numeriPerfetti = [];
+        let nonPerfettiConFattori = [];
+
+        for (let i = 0; i <= 10000; i++) {
+            if (isPerfectNumber(i)) {
+                numeriPerfetti.push(`<li>${i}: ${findFactors(i).join(', ')}</li>`);
+            } else {
+                nonPerfettiConFattori.push(`<li>${i}: ${findFactors(i).join(', ')}</li>`);
+            }
+        }
+
+        
+        document.getElementById("out1").innerHTML = numeriPerfetti.join('');
+        onPerfettiConFattori.join('');
+    </script>
+
+</body>
+</html>
