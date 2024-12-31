@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisi Numerica con Array</title>
+</head>
+<body>
+
+    <h1>Analisi Numerica con Array</h1>
+    <p>Numeri amicali da 1 a 10000:</p> 
+    <p id="out1"></p>
+    <p>Numeri non amicali con fattori:</p>
+    <p id="out2"></p>
+
+    <script>
+        
+        // Funzione per trovare i divisori propri di un numero
+        function findFactors(n) {
+            let factors = [];
+            for (let i = 1; i < n; i++) {
+                if (n % i === 0) {
+                    factors.push(i);
+                }
+            }
+            return factors;
+        }
+
+        // Funzione per determinare se due numeri sono amicali
+        function areAmicableNumbers(a, b) {
+            return (sumOfDivisors(a) === b && sumOfDivisors(b) === a);
+        }
+
+        // Funzione per calcolare la somma dei divisori di un numero
+        function sumOfDivisors(n) {
+            let sum = 0;
+            for (let i = 1; i < n; i++) {
+                if (n % i === 0) {
+                    sum += i;
+                }
+            }
+            return sum;
+        }
+
+        let numeriAmicali = [];
+        let nonAmicaliConFattori = [];
+
+        for (let i = 1; i <= 10000; i++) {
+            for (let j = i + 1; j <= 10000; j++) {
+                if (areAmicableNumbers(i, j)) {
+                    numeriAmicali.push(`${i} e ${j}: ${findFactors(i).join(', ')} | ${findFactors(j).join(', ')}`);
+                }
+            }
+            if (numeriAmicali.length === 0) {
+                nonAmicaliConFattori.push(`${i}: ${findFactors(i).join(', ')}`);
+            }
+        }
+
+        // Visualizzare i numeri amicali
+        document.getElementById("out1").innerHTML = numeriAmicali.join('<br>');
+
+        // Visualizzare i numeri non amicali con i fattori
+        document.getElementById("out2").innerHTML = nonAmicaliConFattori.join('<br>');
+
+    </script>
+
+</body>
+</html>
+
