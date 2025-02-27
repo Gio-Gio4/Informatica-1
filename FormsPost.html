@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modulo di Invio Messaggio</title>
+</head>
+<body>
+
+    <h2>Invia il tuo messaggio</h2>
+
+    
+    <form id="messaggioForm" method="POST" onsubmit="inviaDati(event)">
+        <label for="nickname">Nickname:</label>
+        <input type="text" id="nickname" name="nickname" required><br><br>
+        
+        <label for="messaggio">Messaggio:</label>
+        <textarea id="messaggio" name="messaggio" rows="4" required></textarea><br><br>
+        
+        <input type="submit" value="Invia">
+    </form>
+
+    <h3>Messaggio Inviato:</h3>
+    <div id="risultato"></div>
+
+    <script>
+    
+        function inviaDati(event) {
+            event.preventDefault(); 
+
+            
+            const nickname = document.getElementById("nickname").value;
+            const messaggio = document.getElementById("messaggio").value;
+
+            const risultatoDiv = document.getElementById("risultato");
+            risultatoDiv.innerHTML = `<p><strong>Nickname:</strong> ${nickname}</p>
+                                      <p><strong>Messaggio:</strong> ${messaggio}</p>`;
+
+           
+            const postData = {
+                nickname: nickname,
+                messaggio: messaggio
+            };
+            console.log("Dati inviati con POST:", postData);
+        }
+    </script>
+
+</body>
+</html>
