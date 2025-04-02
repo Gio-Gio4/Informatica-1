@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generatore di numeri casuali</title>
+    <script>
+        let intervallo;
+
+        // Funzione per generare numeri casuali
+        function generaNumeroCasuale(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // Funzione per iniziare a generare numeri casuali
+        function iniziaGenerazione() {
+            const min = parseInt(document.getElementById('min').value);
+            const max = parseInt(document.getElementById('max').value);
+
+            if (min > max) {
+                alert('Il valore minimo deve essere inferiore al valore massimo.');
+                return;
+            }
+
+         
+            intervallo = setInterval(() => {
+                const risultato = generaNumeroCasuale(min, max);
+                const elementoRisultato = document.getElementById('risultato');
+                elementoRisultato.textContent += `${risultato}, `;
+            }, 100);
+        }
+
+        
+        function fermaGenerazione() {
+            clearInterval(intervallo);
+            alert('Generazione interrotta.');
+        }
+    </script>
+</head>
+<body>
+    <h1>Generatore di numeri casuali</h1>
+    <label for="min">Minimo:</label>
+    <input type="number" id="min" placeholder="Inserisci il minimo">
+    <br>
+    <label for="max">Massimo:</label>
+    <input type="number" id="max" placeholder="Inserisci il massimo">
+    <br>
+    <button onclick="iniziaGenerazione()">Inizia</button>
+    <button onclick="fermaGenerazione()">Ferma</button>
+    <p id="risultato">Numeri casuali generati: </p>
+</body>
+</html>
