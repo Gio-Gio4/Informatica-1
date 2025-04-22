@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Simulatore Produzione Graffette</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 15px;
+      font-size: 16px;
+    }
+    #output {
+      margin-top: 20px;
+      background-color: white;
+      padding: 10px;
+      border: 1px solid #ccc;
+      height: 200px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎯 Simulatore Produzione Graffette</h1>
+
+  <button onclick="producer.startProduction()">▶️ Avvia Produzione</button>
+  <button onclick="producer.stopProduction()">⏹ Ferma Produzione</button>
+  <button onclick="producer.resetProduction()">🔄 Reset</button>
+  <button onclick="producer.boostProduction(3, 5)">⚡ Boost x3 per 5s</button>
+  <button onclick="showStatus()">📊 Stato</button>
+
+  <div id="output"></div>
+
+  <script>
+    class ClipProducer {
+      constructor(name, productionRatePerSecond) {
+        this.name = name;
+        this.productionRate = productionRatePerSecond;
+        this.totalClips = 0;
+        this.running = false;
+        this._intervalId = null;
+      }
+
+      startProduction() {
+        if (this.running) return;
+        this.running = true;
+        this._intervalId = setInterval(() => {
+          this.totalClips += this.productionRate;
+          log(`[${this.name}] Graffette totali: ${this.totalClips}`);
+        }, 1000);
+      }
+
+      stopProduction() {
+        if (!this.running) return;
+        clearInterval(this._intervalId);
+        this._intervalId = null;
+        this.running = false;
+        log(`[${this.name}] Produzione fermata.`);
+      }
+
+      resetProduction() {
+        this.totalClips = 0;
+        log(`[${this.name}] Conteggio graffette azzerato.`);
+      }
+
+      status() {
+        return {
+          name: this.name,
+          running: this.running,
+          productionRate: this.productionRate,
+          totalClips: this.totalClips
+        };
+      }
+
+      boostProduction(factor, durationInSeconds) {
+        if (!this.running) {
+          log(`[${this.name}] Impossibile attivare boost: produzione non attiva.`);
+          return;
+        }
+
+        const originalRate = this.productionRate;
+        this.productionRate *= factor;
+        log(`[${this.name}] Boost attivo! Nuova velocità: ${this.productionRate} graffette/sec`);
+
+        setTimeout(() => {
+          this.productionRate = originalRate;
+          log(`[${this.name}] Boost terminato. Velocità ripristinata a ${this.productionRate} graffette/sec`);
+        }, durationInSeconds * 1000);
+      }
+    }
+
+    const producer = new ClipProducer("Fabbrica A", 5);
+
+    function log(message) {
+      const output = document.getElementById('output');
+      output.textContent += message + '\n';
+      output.scrollTop = output.scrollHeight;
+    }
+
+    function showStatus() {
+      const status = producer.status();
+      log("=== Stato Attuale ===\n" +
+          `Nome: ${status.name}\n` +
+          `In Funzione: ${status.running}\n` +
+          `Velocità: ${status.productionRate} graffette/sec\n` +
+          `Totale Graffette: ${status.totalClips}\n===================`);
+    }
+  </script>
+
+</body>
+</html>
