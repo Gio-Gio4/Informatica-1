@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gioco di Reazione</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        #box { width: 100px; height: 100px; background-color: red; position: absolute; display: none; }
+    </style>
+</head>
+<body>
+    <h1>Test di Reazione</h1>
+    <p>Clicca sul quadrato il più velocemente possibile quando appare!</p>
+    <button onclick="startGame()">Inizia</button>
+    <div id="box" onclick="recordReaction()"></div>
+    <p id="results"></p>
+
+    <script>
+        let reactionTimes = [];
+        let startTime;
+        let interval;
+
+        function startGame() {
+            document.getElementById("results").innerText = "";
+            reactionTimes = [];
+            showBoxRandomly();
+        }
+
+        function showBoxRandomly() {
+            let delay = Math.random() * 3000 + 1000; // Tempo di attesa tra 1 e 4 secondi
+            interval = setTimeout(() => {
+                startTime = new Date().getTime();
+                let box = document.getElementById("box");
+                box.style.top = Math.random() * (window.innerHeight - 100) + "px";
+                box.style.left = Math.random() * (window.innerWidth - 100) + "px";
+                box.style.display = "block";
+            }, delay);
+        }
+
+        function recordReaction() {
+            let reactionTime = new Date().getTime() - startTime;
+            reactionTimes.push(reactionTime);
+            document.getElementById("box").style.display = "none";
+            
+            if (reactionTimes.length < 5) {
+                showBoxRandomly();
+            } else {
+                clearTimeout(interval);
+                document.getElementById("results").innerText = "Tempi di reazione: " + reactionTimes.join(" ms, ") + " ms";
+            }
+        }
+    </script>
+</body>
+</html>
